@@ -16,9 +16,7 @@ api = Api(app)
 jwt = JWT(app,authenticate,identity) #Default URL End point Auth/
 
 
-@app.before_first_request
-def create_tables():
-    db.create_all()
+
 
 
 # Adding Resources to API along with end points 
