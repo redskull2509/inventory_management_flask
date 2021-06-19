@@ -13,7 +13,7 @@ app = Flask(__name__)
 app.secret_key = "kapil"
 app.config['SQLALCHEMNY_TRACK_MODIFICATIONS'] = False
 #app.config['SQLALCHEMY_DATABASE_URI'] ='sqlite:///data.db'
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL','sqlite:///data.db')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL','sqlite:///data.db').replace("postgres://", "postgresql://", 1)
 api = Api(app)
 jwt = JWT(app,authenticate,identity) #Default URL End point Auth/
 
